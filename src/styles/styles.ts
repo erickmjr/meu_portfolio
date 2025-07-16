@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 import variaveis from './variaveis';
 
 const EstiloGlobal = createGlobalStyle`
+    html, body, #root {
+        height: 100vh;
+    }
+    
     * {
         margin: 0;
         padding: 0;
@@ -10,13 +14,6 @@ const EstiloGlobal = createGlobalStyle`
         font-family: ${variaveis.fontePrincipal}
     }
 
-    h1 {
-        font-size: 6dvh;
-    }
-
-    li {
-        font-size: 3dvh;
-    }
 `;
 
 export default EstiloGlobal;
