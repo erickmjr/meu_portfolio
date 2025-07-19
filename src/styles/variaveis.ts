@@ -1,3 +1,5 @@
 export default {
-    fontePrincipal: "'Montserrat', 'sans-serif'",
+    fontePrincipal: "'Sen', 'sans-serif'",
+    branco1: '#ececec',
+    azul1: '#0057ff',
 };
