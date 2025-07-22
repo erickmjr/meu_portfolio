@@ -1,0 +1,18 @@
+import styled from 'styled-components';
+import variaveis from '../../styles/variaveis';
+
+export const BtnCVStyled = styled.button`
+    border: none;
+    padding: 2dvh;
+    background-color: ${variaveis.branco1};
+    color: ${variaveis.black1};
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+
+    img {
+        width: 2rem;
+    }
+`;
