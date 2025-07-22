@@ -3,7 +3,7 @@ import variaveis from './variaveis';
 
 const EstiloGlobal = createGlobalStyle`
     html, body, #root {
-        height: 100vh;
+        height: 100dvh;
     }
     
     * {
@@ -12,6 +12,10 @@ const EstiloGlobal = createGlobalStyle`
         box-sizing: border-box;
         list-style: none;
         font-family: ${variaveis.fontePrincipal}
+    }
+
+    button {
+        cursor: pointer;
     }
 
 `;

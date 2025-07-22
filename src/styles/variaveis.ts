@@ -1,5 +1,6 @@
 export default {
     fontePrincipal: "'Sen', 'sans-serif'",
     branco1: '#ececec',
-    azul1: '#0057ff',
+    verde1: '#023311',
+    black1: '#000',
 };
