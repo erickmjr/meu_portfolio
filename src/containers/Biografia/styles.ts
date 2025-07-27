@@ -7,13 +7,14 @@ export const BiografiaStyled = styled.section`
     background-image: url(${backgroundImg});
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100dvh;
+    height: 100vh;
     display: flex;
     align-items: center;
 
-    h2 {
-        color: ${variaveis.branco1};
-        font-size: 3rem;
+    @media (max-width: 1000px) {
+        flex-direction: column;
+        justify-content: center;
+        padding: 7dvh;
     }
 `;
 
@@ -24,14 +25,26 @@ export const ContainerText = styled.div`
 
     h2 {
         font-size: 5rem;
+
+        @media (max-width: 1000px) {
+            font-size: 3rem;
+        }
     }
 
     h3 {
         font-size: 4rem;
+
+        @media (max-width: 1000px) {
+            font-size: 2rem;
+        }
     }
 
     p {
         font-size: 1.25rem;
+
+        @media (max-width: 1000px) {
+            font-size: 1rem;
+        }
     }
 `;
 
@@ -41,5 +54,10 @@ export const ContainerImage = styled.div`
     img {
         border-radius: 180px 340px 180px 340px;
         width: 100%;
+    }
+
+    @media (max-width: 1000px) {
+        margin-top: 2dvh;
+        max-width: 50%;
     }
 `;
