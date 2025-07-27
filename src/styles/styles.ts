@@ -24,8 +24,6 @@ const EstiloGlobal = createGlobalStyle`
     .nomeAtivado {
         opacity: 1;
     }
-    
-
 `;
 
 export default EstiloGlobal;

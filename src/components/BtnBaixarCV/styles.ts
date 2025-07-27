@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import variaveis from '../../styles/variaveis';
 
-export const BtnCVStyled = styled.button`
+export const BtnCVStyled = styled.a`
     border: none;
     padding: 2dvh;
     background-color: ${variaveis.branco1};
@@ -11,6 +11,7 @@ export const BtnCVStyled = styled.button`
     align-items: center;
     font-weight: bold;
     font-size: 1.5rem;
+    text-decoration: none;
 
     img {
         width: 2rem;

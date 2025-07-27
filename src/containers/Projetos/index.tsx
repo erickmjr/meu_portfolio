@@ -14,7 +14,6 @@ import reactIcon from '../../images/icons/react.svg';
 import reduxIcon from '../../images/icons/redux.svg';
 import typescriptIcon from '../../images/icons/typescript.svg';
 import htmlIcon from '../../images/icons/html5.svg';
-
 import gulpIcon from '../../images/icons/gulp.svg';
 import bootstrapIcon from '../../images/icons/bootstrap.svg';
 import sassIcon from '../../images/icons/sass.svg';

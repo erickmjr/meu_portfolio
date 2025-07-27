@@ -1,7 +1,6 @@
 import BtnBaixarCV from '../../components/BtnBaixarCV';
 import { BarraTopoStyled } from './styles';
 import downloadIcon from '../../images/icons/download.png';
-
 const BarraTopo = () => {
     return (
         <BarraTopoStyled>

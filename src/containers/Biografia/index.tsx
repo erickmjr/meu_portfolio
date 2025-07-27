@@ -1,6 +1,5 @@
 import { BiografiaStyled, ContainerImage, ContainerText } from './styles';
 import imgPraia from '../../images/imgPraia.png';
-
 const Biografia = () => {
     return (
         <BiografiaStyled>
