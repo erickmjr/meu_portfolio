@@ -27,7 +27,7 @@ import IconeTech from '../../components/IconeTech';
 
 const Hero = () => {
     return (
-        <HeroStyled>
+        <HeroStyled id="inicio">
             <BarraTopo />
             <CardContainer>
                 <ProfileCard>

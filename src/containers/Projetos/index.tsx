@@ -25,7 +25,7 @@ import { ProjetosContainer, ProjetosStyled, TitleContainer } from './styles';
 
 const Projetos = () => {
     return (
-        <ProjetosStyled>
+        <ProjetosStyled id="projetos">
             <TitleContainer>
                 <h2>Meus projetos</h2>
                 <p>

@@ -2,7 +2,7 @@ import { BiografiaStyled, ContainerImage, ContainerText } from './styles';
 import imgPraia from '../../images/imgPraia.png';
 const Biografia = () => {
     return (
-        <BiografiaStyled>
+        <BiografiaStyled id="sobre">
             <ContainerText>
                 <h2>Olá!</h2>
                 <h3>Eu sou Érick Mello, Desenvolvedor Front-End</h3>
