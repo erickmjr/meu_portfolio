@@ -2,9 +2,28 @@ import { Link } from 'react-scroll';
 import BtnBaixarCV from '../../components/BtnBaixarCV';
 import { BarraTopoStyled } from './styles';
 import downloadIcon from '../../images/icons/download.png';
+import { useEffect, useState } from 'react';
 const BarraTopo = () => {
+    const alturaTela: number = window.innerHeight * 0.2;
+
+    const [exibir, setExibir] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const novaAltura: number = window.scrollY;
+
+            setExibir(novaAltura >= alturaTela);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        handleScroll();
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [alturaTela]);
+
     return (
-        <BarraTopoStyled>
+        <BarraTopoStyled className={`${exibir ? 'absoluto' : ''}`}>
             <BtnBaixarCV mensagem="Baixar CV" imagem={downloadIcon} />
             <ul>
                 <li>

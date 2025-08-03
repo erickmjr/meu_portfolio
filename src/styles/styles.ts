@@ -24,6 +24,14 @@ const EstiloGlobal = createGlobalStyle`
     .nomeAtivado {
         opacity: 1;
     }
+
+    .absoluto {
+        width: 100%;
+        z-index: 100;
+        background-color: ${variaveis.black1};
+        transition: background-color 0.5s ease;
+        
+    }
 `;
 
 export default EstiloGlobal;
