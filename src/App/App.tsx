@@ -1,4 +1,5 @@
 import Biografia from '../containers/Biografia';
+import Contato from '../containers/Contato';
 import Hero from '../containers/Hero';
 import Projetos from '../containers/Projetos';
 import EstiloGlobal from '../styles/styles';
@@ -12,6 +13,7 @@ function App() {
                 <Hero />
                 <Biografia />
                 <Projetos />
+                <Contato />
             </AppContainer>
         </>
     );

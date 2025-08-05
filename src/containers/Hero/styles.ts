@@ -39,13 +39,23 @@ export const ProfileCard = styled.div`
         color: ${variaveis.branco1};
     }
 
-    p {
+    p,
+    a {
         font-size: 2.5dvh;
         color: ${variaveis.branco1};
         font-weight: 600;
         margin-top: 0.5rem;
         letter-spacing: 0.5px;
         white-space: nowrap;
+
+        img {
+            margin-top: 0.75dvh;
+            max-width: 20%;
+        }
+    }
+
+    a {
+        margin-top: 0.5dvh;
     }
 `;
 

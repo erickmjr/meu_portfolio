@@ -21,9 +21,12 @@ import mysqlIcon from '../../images/icons/mysql.svg';
 import htmlIcon from '../../images/icons/html5.svg';
 import reactRouterIcon from '../../images/icons/reactrouter.svg';
 import figmaIcon from '../../images/icons/figma.svg';
+import githubIcon from '../../images/icons/github.png';
+import linkedinIcon from '../../images/icons/linkedin.png';
 
 import BarraTopo from '../BarraTopo';
 import IconeTech from '../../components/IconeTech';
+import { ContainerIcones } from '../Contato/styles';
 
 const Hero = () => {
     return (
@@ -41,6 +44,20 @@ const Hero = () => {
                             JUNIOR
                         </h1>
                         <p>DESENVOLVEDOR FRONT-END</p>
+                        <ContainerIcones>
+                            <a
+                                href="https://github.com/erickmjr"
+                                target="_blank"
+                            >
+                                <img src={githubIcon} alt="github" />
+                            </a>
+                            <a
+                                href="https://linkedin.com/in/erick-mello-junior"
+                                target="_blank"
+                            >
+                                <img src={linkedinIcon} alt="LinkedIn" />
+                            </a>
+                        </ContainerIcones>
                     </div>
                 </ProfileCard>
                 <TechsContainer>

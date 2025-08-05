@@ -16,4 +16,10 @@ export const BtnCVStyled = styled.a`
     img {
         width: 2rem;
     }
+
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(0.95);
+    }
 `;

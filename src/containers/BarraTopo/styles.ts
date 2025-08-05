@@ -26,6 +26,14 @@ export const BarraTopoStyled = styled.header`
             color: ${variaveis.branco1};
             background-color: transparent;
             font-size: 1.25rem;
+            transition:
+                transform 0.3s ease-in-out,
+                text-shadow 0.3s ease-in-out;
+
+            &:hover {
+                transform: scale(0.95);
+                text-shadow: 0px 4px 25px ${variaveis.branco2};
+            }
         }
     }
 `;
