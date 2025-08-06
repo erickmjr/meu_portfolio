@@ -1,3 +1,4 @@
+import Footer from '../components/Footer';
 import Biografia from '../containers/Biografia';
 import Contato from '../containers/Contato';
 import Hero from '../containers/Hero';
@@ -14,6 +15,7 @@ function App() {
                 <Biografia />
                 <Projetos />
                 <Contato />
+                <Footer />
             </AppContainer>
         </>
     );

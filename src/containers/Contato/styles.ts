@@ -8,11 +8,10 @@ export const ContatoStyled = styled.section`
     background-size: cover;
     height: 100dvh;
     color: ${variaveis.branco2};
-    padding: 3dvh;
-
-    h2 {
-        font-size: 25dvh;
-    }
+    padding: 8.5dvh 5dvh 0 5dvh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 `;
 
 export const ContainerIcones = styled.div`

@@ -1,5 +1,5 @@
 import { BiografiaStyled, ContainerImage, ContainerText } from './styles';
-import imgPraia from '../../images/imgPraia.png';
+import GithubStats from '../../components/GithubStats';
 const Biografia = () => {
     return (
         <BiografiaStyled id="sobre">
@@ -22,15 +22,14 @@ const Biografia = () => {
                     desenvolvedor <strong>Full-Stack</strong>.
                 </p>
                 <p>
-                    Gosto de aprender construindo projetos reais e resolvendo
-                    problemas práticos. Estou em busca da minha primeira
-                    oportunidade na área de desenvolvimento, para que eu possa
-                    aplicar meus conhecimentos, continuar aprendendo e crescer
-                    junto com a equipe.
+                    Me interesso por interfaces bem construídas e funcionais, e
+                    aprendo melhor construindo projetos práticos. Busco minha
+                    primeira oportunidade como desenvolvedor front-end, onde eu
+                    possa unir técnica, criatividade e aprendizado contínuo.
                 </p>
             </ContainerText>
             <ContainerImage>
-                <img src={imgPraia} alt="Erick de costas na praia" />
+                <GithubStats />
             </ContainerImage>
         </BiografiaStyled>
     );

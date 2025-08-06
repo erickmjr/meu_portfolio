@@ -5,4 +5,5 @@ export default {
     black1: '#000',
     branco2: '#ddddddff',
     cinza1: '#9e9e9eff',
+    vermelho1: '#650D1B',
 };

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { PerfilGithub } from '../../types/PerfilGithub';
+import { ContainerContent, StatsStyled } from './styles';
 
 const GithubStats: React.FC = () => {
     const [perfil, setPerfil] = useState<PerfilGithub | null>(null);
@@ -12,6 +13,7 @@ const GithubStats: React.FC = () => {
                     userName: data.login,
                     bio: data.bio,
                     publicRepos: data.public_repos,
+                    avatarUrl: data.avatar_url,
                 };
                 setPerfil(dadosFiltrados);
             })
@@ -21,23 +23,27 @@ const GithubStats: React.FC = () => {
     }, []);
 
     return (
-        <div>
+        <StatsStyled>
             {perfil ? (
                 <>
-                    <h2>{perfil.userName}</h2>
-                    <p>
-                        <strong>Bio:</strong>
-                        {perfil.bio}
-                    </p>
-                    <p>
-                        <strong>Total de Repos:</strong>
-                        {perfil.publicRepos}
-                    </p>
+                    <ContainerContent>
+                        <div>
+                            <a
+                                href="https://github.com/erickmjr"
+                                target="_blank"
+                            >
+                                @{perfil.userName}
+                            </a>
+                            <img src={perfil.avatarUrl} alt="avatar" />
+                            <p>{perfil.bio}</p>
+                            <p>{perfil.publicRepos} Repositórios</p>
+                        </div>
+                    </ContainerContent>
                 </>
             ) : (
                 <p>Carregando perfil...</p>
             )}
-        </div>
+        </StatsStyled>
     );
 };
 

@@ -3,13 +3,14 @@ import variaveis from '../../styles/variaveis';
 import backgroundImg from '../../images/backgrounds/biografia.png';
 
 export const BiografiaStyled = styled.section`
-    padding: 5dvh;
+    padding: 10dvh 5dvh 0 5dvh;
     background-image: url(${backgroundImg});
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     @media (max-width: 1000px) {
         flex-direction: column;
@@ -22,6 +23,7 @@ export const ContainerText = styled.div`
     display: block;
 
     color: ${variaveis.branco1};
+    width: 60%;
 
     h2 {
         font-size: 5rem;
@@ -49,11 +51,11 @@ export const ContainerText = styled.div`
 `;
 
 export const ContainerImage = styled.div`
-    max-width: 30%;
+    width: 35%;
 
     img {
         border-radius: 180px 340px 180px 340px;
-        width: 100%;
+        width: 70%;
     }
 
     @media (max-width: 1000px) {

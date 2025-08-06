@@ -7,6 +7,7 @@ export const ProjetosStyled = styled.section`
     background-repeat: no-repeat;
     background-size: cover;
     display: block;
+    padding-top: 10dvh;
 `;
 
 export const TitleContainer = styled.div`
