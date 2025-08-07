@@ -34,8 +34,8 @@ const EstiloGlobal = createGlobalStyle`
         transition: background-color 0.5s ease;
     }
 
-    .flex {
-        display: flex;
+    .visivel {
+        visibility: visible;
     }
 `;
 

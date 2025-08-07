@@ -21,7 +21,7 @@ const MenuHamburguer = () => {
                     <span></span>
                 </ToggleMenu>
                 <HamburguerNavigation
-                    className={showMenu ? 'nomeAtivado flex' : ''}
+                    className={showMenu ? 'nomeAtivado visivel' : ''}
                 >
                     <Link to="inicio" smooth={true} duration={500}>
                         <button type="button">Ínicio</button>

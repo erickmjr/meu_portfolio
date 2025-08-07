@@ -9,7 +9,7 @@ export const MenuHamburguerStyled = styled.div`
 export const HamburguerNavigation = styled.nav`
     position: absolute;
     z-index: 100;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: left;
     border-radius: 12px;
@@ -19,7 +19,10 @@ export const HamburguerNavigation = styled.nav`
     margin-top: 1dvh;
 
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+    transition:
+        opacity 0.3s ease-in-out,
+        visibility 0.3s ease-in-out;
 
     button {
         border: none;
