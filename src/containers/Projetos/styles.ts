@@ -8,6 +8,11 @@ export const ProjetosStyled = styled.section`
     background-size: cover;
     display: block;
     padding-top: 10dvh;
+    width: 100%;
+
+    @media (max-width: 768px) {
+        height: fit-content;
+    }
 `;
 
 export const TitleContainer = styled.div`
@@ -17,10 +22,19 @@ export const TitleContainer = styled.div`
     h2 {
         color: ${variaveis.branco1};
         font-size: 5rem;
+
+        @media (max-width: 768px) {
+            font-size: 3rem;
+        }
     }
 
     p {
         color: ${variaveis.branco1};
+
+        @media (max-width: 768px) {
+            font-size: 1rem;
+            padding: 0 1dvh;
+        }
     }
 `;
 

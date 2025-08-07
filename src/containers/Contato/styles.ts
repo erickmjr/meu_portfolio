@@ -7,11 +7,17 @@ export const ContatoStyled = styled.section`
     background-repeat: no-repeat;
     background-size: cover;
     height: 100dvh;
+    width: 100%;
     color: ${variaveis.branco2};
     padding: 8.5dvh 5dvh 0 5dvh;
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    @media (max-width: 768px) {
+        height: fit-content;
+        padding: 9dvh 0 5dvh 0;
+    }
 `;
 
 export const ContainerIcones = styled.div`

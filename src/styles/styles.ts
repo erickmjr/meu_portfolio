@@ -6,6 +6,8 @@ import cursorPointer from '../images/cursores/pointer.png';
 const EstiloGlobal = createGlobalStyle`
     html, body, #root {
         height: 100dvh;
+        width: 100%;
+        max-width: 100dvw;
         cursor: url(${cursorPadrao}), auto;
     }
 
@@ -30,7 +32,10 @@ const EstiloGlobal = createGlobalStyle`
         z-index: 100;
         background-color: ${variaveis.black1};
         transition: background-color 0.5s ease;
-        
+    }
+
+    .flex {
+        display: flex;
     }
 `;
 

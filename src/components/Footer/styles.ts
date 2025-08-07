@@ -11,6 +11,7 @@ export const FooterStyled = styled.footer`
     display: flex;
     gap: 4dvh;
     justify-content: center;
+    align-items: center;
 
     a {
         color: ${variaveis.black1};
@@ -23,5 +24,14 @@ export const FooterStyled = styled.footer`
     img {
         width: 2rem;
         margin-left: 1dvh;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 2dvh;
+
+        img {
+            width: 1.25rem;
+            margin-left: 0.5dvh;
+        }
     }
 `;

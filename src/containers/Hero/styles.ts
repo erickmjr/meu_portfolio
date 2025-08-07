@@ -2,11 +2,18 @@ import styled from 'styled-components';
 import variaveis from '../../styles/variaveis';
 import backgroundImg from '../../images/backgrounds/hero.png';
 
-export const HeroStyled = styled.header`
+export const HeroStyled = styled.section`
+    width: 100%;
+    height: 100dvh;
     background-image: url(${backgroundImg});
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100dvh;
+
+    @media (max-width: 768px) {
+        padding-top: 15dvh;
+        height: fit-content;
+        padding-bottom: 2dvh;
+    }
 `;
 
 export const CardContainer = styled.div`
@@ -16,8 +23,8 @@ export const CardContainer = styled.div`
     width: 100%;
     height: 100%;
 
-    @media (max-width: 800px) {
-        display: block;
+    @media (max-width: 768px) {
+        flex-direction: column;
     }
 `;
 
@@ -57,6 +64,46 @@ export const ProfileCard = styled.div`
     a {
         margin-top: 0.5dvh;
     }
+
+    @media (max-width: 768px) {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1dvh;
+        margin-bottom: 6dvh;
+
+        img {
+            width: 70%;
+        }
+
+        h1 {
+            font-size: 6dvh;
+            line-height: 1.2;
+            font-weight: 700;
+            color: ${variaveis.branco1};
+            padding-left: 3dvh;
+        }
+
+        p,
+        a {
+            font-size: 2.5dvh;
+            color: ${variaveis.branco1};
+            font-weight: 600;
+            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            padding-left: 3dvh;
+
+            img {
+                max-width: 20%;
+            }
+        }
+
+        a {
+            margin-top: 0.5dvh;
+        }
+    }
 `;
 
 export const TechsContainer = styled.aside`
@@ -79,9 +126,22 @@ export const TechsContainer = styled.aside`
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 6vh;
+
+        @media (max-width: 768px) {
+            grid-gap: 4vh;
+        }
     }
 
     img {
         width: 54px;
+
+        @media (max-width: 768px) {
+            max-width: 4rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        width: 90%;
+        margin: 0;
     }
 `;

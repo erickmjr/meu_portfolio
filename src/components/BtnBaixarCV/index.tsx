@@ -7,7 +7,7 @@ type ButtonProps = {
 
 const BtnBaixarCV = ({ mensagem, imagem }: ButtonProps) => (
     <BtnCVStyled
-        href="../../../public/arquivos/erickMelloCurriculo.pdf"
+        href="../../../public/arquivos/Erick_Mello_Curriculo.pdf"
         download
     >
         {mensagem}

@@ -55,7 +55,7 @@ export const TechsProjetoContainer = styled.div`
         gap: 1.5dvh;
 
         img {
-            height: 2.5em; /* ou ajuste conforme desejar */
+            height: 2.5em;
             width: auto;
             display: block;
         }

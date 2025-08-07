@@ -13,7 +13,7 @@ export const FormStyled = styled.form`
     input {
         border: 2px solid ${variaveis.branco1};
         width: 100%;
-        padding: 1dvh 2dvh;
+        padding: 2dvh;
         border-radius: 6px 0 6px 0;
         box-shadow: 10px 10px 30px ${variaveis.verde1};
         background-color: ${variaveis.black1};
@@ -23,6 +23,10 @@ export const FormStyled = styled.form`
         &:hover,
         &:focus {
             transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            font-size: 3dvh;
         }
     }
 
@@ -67,6 +71,10 @@ export const FormStyled = styled.form`
         color: ${variaveis.branco2};
         font-size: 2.5dvh;
     }
+
+    @media (max-width: 768px) {
+        width: 90%;
+    }
 `;
 
 export const ContainerForm = styled.div`
@@ -80,9 +88,19 @@ export const ContainerForm = styled.div`
 
     h3 {
         font-size: 7dvh;
+
+        @media (max-width: 768px) {
+            font-size: 6dvh;
+            text-align: center;
+        }
     }
     p {
         font-size: 4dvh;
         margin-bottom: 3dvh;
+
+        @media (max-width: 768px) {
+            font-size: 3dvh;
+            text-align: center;
+        }
     }
 `;

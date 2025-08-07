@@ -8,6 +8,7 @@ export const BiografiaStyled = styled.section`
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,7 +16,12 @@ export const BiografiaStyled = styled.section`
     @media (max-width: 1000px) {
         flex-direction: column;
         justify-content: center;
-        padding: 7dvh;
+        padding: 7dvh 0;
+    }
+
+    @media (max-width: 768px) {
+        height: fit-content;
+        padding: 5dvh 2dvh;
     }
 `;
 
@@ -25,11 +31,15 @@ export const ContainerText = styled.div`
     color: ${variaveis.branco1};
     width: 60%;
 
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
     h2 {
         font-size: 5rem;
 
         @media (max-width: 1000px) {
-            font-size: 3rem;
+            font-size: 4rem;
         }
     }
 
@@ -37,7 +47,7 @@ export const ContainerText = styled.div`
         font-size: 4rem;
 
         @media (max-width: 1000px) {
-            font-size: 2rem;
+            font-size: 2.5rem;
         }
     }
 
@@ -45,7 +55,7 @@ export const ContainerText = styled.div`
         font-size: 1.25rem;
 
         @media (max-width: 1000px) {
-            font-size: 1rem;
+            font-size: 1.25rem;
         }
     }
 `;
@@ -61,5 +71,10 @@ export const ContainerImage = styled.div`
     @media (max-width: 1000px) {
         margin-top: 2dvh;
         max-width: 50%;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-top: 2dvh;
     }
 `;

@@ -11,6 +11,7 @@ export const BarraTopoStyled = styled.header`
     align-items: center;
     gap: 3dvh;
     padding: 1.5dvh 0;
+    z-index: 1000;
 
     transition:
         background-color 0.5s ease-in-out,
@@ -35,5 +36,12 @@ export const BarraTopoStyled = styled.header`
                 text-shadow: 0px 4px 25px ${variaveis.branco2};
             }
         }
+    }
+
+    @media (max-width: 768px) {
+        justify-content: space-between;
+        padding: 2dvh;
+        background-color: ${variaveis.black1};
+        width: 100%;
     }
 `;

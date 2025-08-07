@@ -11,15 +11,23 @@ export const StatsStyled = styled.div`
 
     a {
         color: ${variaveis.branco2};
-
         font-size: 10dvh;
         font-style: italic;
         text-decoration: none;
+
+        @media (max-width: 768px) {
+            font-size: 7.5dvh;
+        }
     }
 
     p {
         font-size: 3dvh;
         color: ${variaveis.branco2};
+
+        @media (max-width: 768px) {
+            font-size: 2.5dvh;
+            width: 100%;
+        }
     }
 `;
 
