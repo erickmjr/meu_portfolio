@@ -1,80 +1,97 @@
 import styled from 'styled-components';
-import variaveis from '../../styles/variaveis';
-import backgroundImg from '../../images/backgrounds/biografia.png';
+import variaveis, { telas } from '../../styles/variaveis';
 
-export const BiografiaStyled = styled.section`
-    padding: 10dvh 5dvh 0 5dvh;
-    background-image: url(${backgroundImg});
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+export const GradeSobre = styled.div`
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 5.5rem);
 
-    @media (max-width: 1000px) {
-        flex-direction: column;
-        justify-content: center;
-        padding: 7dvh 0;
-    }
+    .texto p {
+        max-width: 38rem;
+        font-size: 1.25rem;
+        line-height: 1.6;
 
-    @media (max-width: 768px) {
-        height: fit-content;
-        padding: 5dvh 2dvh;
-    }
-`;
-
-export const ContainerText = styled.div`
-    display: block;
-
-    color: ${variaveis.branco1};
-    width: 60%;
-
-    @media (max-width: 768px) {
-        width: 100%;
-    }
-
-    h2 {
-        font-size: 5rem;
-
-        @media (max-width: 1000px) {
-            font-size: 4rem;
+        & + p {
+            margin-top: 1.25rem;
         }
     }
 
     h3 {
-        font-size: 4rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: ${variaveis.tintaSuave};
+        margin-bottom: 1rem;
+    }
 
-        @media (max-width: 1000px) {
-            font-size: 2.5rem;
+    .formacao li {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0;
+        border-top: 1px solid ${variaveis.linha};
+        font-size: 1rem;
+        color: ${variaveis.tintaSuave};
+
+        strong {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: ${variaveis.tinta};
         }
     }
 
-    p {
-        font-size: 1.25rem;
-
-        @media (max-width: 1000px) {
-            font-size: 1.25rem;
-        }
+    @media (max-width: ${telas.tablet}) {
+        grid-template-columns: 1fr;
     }
 `;
 
-export const ContainerImage = styled.div`
-    width: 35%;
+export const Tecnologias = styled.div`
+    margin-top: clamp(4rem, 9vw, 6.5rem);
 
-    img {
-        border-radius: 180px 340px 180px 340px;
-        width: 70%;
+    > h3 {
+        font-size: clamp(1.5rem, 2.6vw, 2rem);
+        font-stretch: 110%;
+        font-weight: 650;
+        letter-spacing: -0.02em;
+        margin-bottom: 2rem;
     }
 
-    @media (max-width: 1000px) {
-        margin-top: 2dvh;
-        max-width: 50%;
+    .grupos {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2.5rem clamp(1.5rem, 4vw, 3.5rem);
     }
 
-    @media (max-width: 768px) {
-        width: 100%;
-        margin-top: 2dvh;
+    .grupo {
+        padding-top: 1rem;
+        border-top: 1px solid ${variaveis.linha};
+    }
+
+    h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.375rem 1.125rem;
+        font-size: 1rem;
+        color: ${variaveis.tintaSuave};
+    }
+
+    li {
+        white-space: nowrap;
+    }
+
+    @media (max-width: ${telas.tablet}) {
+        .grupos {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: ${telas.celular}) {
+        .grupos {
+            grid-template-columns: 1fr;
+        }
     }
 `;

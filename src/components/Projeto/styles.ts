@@ -1,63 +1,99 @@
 import styled from 'styled-components';
 import variaveis from '../../styles/variaveis';
 
-export const ProjetoStyled = styled.div`
-    background-color: ${variaveis.branco2};
+export const ProjetoStyled = styled.article`
     display: flex;
     flex-direction: column;
-    color: ${variaveis.black1};
-    border-radius: 12px 0 12px 0;
-    padding: 1.5dvh;
     height: 100%;
 
+    .imagem {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        aspect-ratio: 2 / 1;
+        border-radius: 1rem;
+        border: 1px solid ${variaveis.linha};
+        background-color: ${variaveis.linha};
+        margin-bottom: 1.5rem;
+    }
+
     img {
-        max-width: 100%;
-    }
-
-    h3 {
-        font-size: 3dvh;
-        font-style: italic;
-    }
-
-    a:last-child {
-        display: flex;
+        width: 100%;
         height: 100%;
-        align-items: center;
-        color: ${variaveis.verde1};
-        font-weight: bold;
+        object-fit: cover;
+        object-position: top;
+        transition:
+            transform 0.9s ${variaveis.curva},
+            opacity 0.5s ease;
     }
-`;
 
-export const Embla = styled.div`
-    overflow: hidden;
-`;
+    .alternativa {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+    }
 
-export const EmblaContainer = styled.div`
-    display: flex;
-`;
+    &:hover,
+    &:focus-within {
+        img {
+            transform: scale(1.035);
+        }
 
-export const EmblaSlide = styled.div`
-    flex: 0 0 100%;
-`;
+        .alternativa {
+            opacity: 1;
+        }
+    }
 
-export const TechsProjetoContainer = styled.div`
-    padding: 1dvh 0;
+    .cabecalho {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+    }
 
     h4 {
-        font-size: 2.25dvh;
+        font-size: 1.375rem;
+        font-stretch: 108%;
+        font-weight: 650;
+        letter-spacing: -0.015em;
     }
 
-    .containerIcons {
-        width: 100%;
-        display: flex;
-        padding: 0.5dvh 0;
-        align-items: center;
-        gap: 1.5dvh;
+    .cabecalho span {
+        flex-shrink: 0;
+        font-size: 0.875rem;
+        color: ${variaveis.tintaSuave};
+    }
 
-        img {
-            height: 2.5em;
-            width: auto;
-            display: block;
+    p {
+        margin: 0.5rem 0 1rem;
+        max-width: 34rem;
+        font-size: 1rem;
+    }
+
+    .links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: auto;
+        padding-top: 1.25rem;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: ${variaveis.linha};
+            text-decoration-thickness: 1.5px;
+            text-underline-offset: 0.3em;
+            transition:
+                color 0.25s ease,
+                text-decoration-color 0.25s ease;
+
+            &:hover {
+                color: ${variaveis.sinalTexto};
+                text-decoration-color: currentColor;
+            }
         }
     }
 `;

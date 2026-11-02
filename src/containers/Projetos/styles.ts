@@ -1,56 +1,38 @@
 import styled from 'styled-components';
-import backgroundImg from '../../images/backgrounds/projetos.png';
-import variaveis from '../../styles/variaveis';
+import variaveis, { telas } from '../../styles/variaveis';
 
-export const ProjetosStyled = styled.section`
-    background-image: url(${backgroundImg});
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    padding-top: 10dvh;
-    width: 100%;
+// Seletores com ">" para não atingir o cabeçalho e as listas de cada projeto.
+export const OutrosProjetos = styled.div`
+    margin-top: clamp(5rem, 11vw, 8rem);
 
-    @media (max-width: 768px) {
-        height: fit-content;
-    }
-`;
+    > .introducao {
+        margin-bottom: 2.5rem;
 
-export const TitleContainer = styled.div`
-    margin: 0 auto;
-    text-align: center;
+        h3 {
+            font-size: clamp(1.5rem, 2.6vw, 2rem);
+            font-stretch: 110%;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+        }
 
-    h2 {
-        color: ${variaveis.branco1};
-        font-size: 5rem;
-
-        @media (max-width: 768px) {
-            font-size: 3rem;
+        p {
+            margin-top: 0.5rem;
+            color: ${variaveis.tintaSuave};
         }
     }
 
-    p {
-        color: ${variaveis.branco1};
-
-        @media (max-width: 768px) {
-            font-size: 1rem;
-            padding: 0 1dvh;
-        }
-    }
-`;
-
-export const ProjetosContainer = styled.div`
-    padding: 1dvh;
-
-    ul {
+    > ul {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 1dvh;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3rem);
+    }
 
-        li {
-            padding: 1dvh;
-        }
+    > ul > li > div {
+        height: 100%;
+    }
 
-        @media (max-width: 768px) {
+    @media (max-width: ${telas.celular}) {
+        > ul {
             grid-template-columns: 1fr;
         }
     }

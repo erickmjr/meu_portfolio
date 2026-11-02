@@ -1,18 +1,27 @@
-import { BtnCVStyled } from './styles';
+import { contato } from '../../dados/contato';
+import { Botao } from '../Botao/styles';
+import { IconeDownload } from '../Icones';
 
-type ButtonProps = {
-    mensagem: string;
-    imagem: React.ReactNode;
+type BtnBaixarCVProps = {
+    mensagem?: string;
+    variante?: 'primario' | 'secundario';
+    className?: string;
 };
 
-const BtnBaixarCV = ({ mensagem, imagem }: ButtonProps) => (
-    <BtnCVStyled
-        href="../../../public/arquivos/Erick_Mello_Curriculo.pdf"
-        download
+const BtnBaixarCV = ({
+    mensagem = 'Baixar CV',
+    variante = 'secundario',
+    className,
+}: BtnBaixarCVProps) => (
+    <Botao
+        href={contato.curriculo}
+        download="Erick_Mello_Curriculo.pdf"
+        $variante={variante}
+        className={className}
     >
+        <IconeDownload />
         {mensagem}
-        <img src={`${imagem}`} alt="Baixar curriculo" />
-    </BtnCVStyled>
+    </Botao>
 );
 
 export default BtnBaixarCV;

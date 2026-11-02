@@ -1,106 +1,66 @@
-import { styled } from 'styled-components';
+import styled from 'styled-components';
+import { estiloBotao, type BotaoProps } from '../Botao/styles';
 import variaveis from '../../styles/variaveis';
 
 export const FormStyled = styled.form`
-    background-color: transparent;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 1.25dvh;
-    height: fit-content;
-    width: 50%;
+    gap: 1.25rem;
 
-    input {
-        border: 2px solid ${variaveis.branco1};
+    .envio {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+`;
+
+export const BotaoEnviar = styled.button<BotaoProps>`
+    ${estiloBotao}
+
+    &:disabled {
+        cursor: progress;
+        opacity: 0.7;
+    }
+`;
+
+export const CampoForm = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+
+    label {
+        font-size: 0.9375rem;
+        font-weight: 600;
+    }
+
+    input,
+    textarea {
         width: 100%;
-        padding: 2dvh;
-        border-radius: 6px 0 6px 0;
-        box-shadow: 10px 10px 30px ${variaveis.verde1};
-        background-color: ${variaveis.black1};
-        color: ${variaveis.branco2};
-        transition: transform 0.3s ease-in-out;
+        padding: 0.875rem 1rem;
+        border: 1px solid ${variaveis.linha};
+        border-radius: 0.75rem;
+        background-color: ${variaveis.superficie};
+        font-size: 1rem;
+        transition:
+            border-color 0.25s ease,
+            box-shadow 0.25s ease;
 
-        &:hover,
-        &:focus {
-            transform: scale(1.02);
+        &:hover {
+            border-color: ${variaveis.tintaSuave};
         }
 
-        @media (max-width: 768px) {
-            font-size: 3dvh;
+        &:focus {
+            outline: none;
+            border-color: ${variaveis.tinta};
+            box-shadow: 0 0 0 3px
+                color-mix(in srgb, ${variaveis.sinal} 30%, transparent);
         }
     }
 
     textarea {
-        border: 2px solid ${variaveis.branco1};
-        background-color: ${variaveis.black1};
-        color: ${variaveis.branco2};
-        box-shadow: 10px 10px 30px ${variaveis.verde1};
-        resize: none;
-        border-radius: 6px 0 6px 0;
-        padding: 1dvh 2dvh;
-        height: 30dvh;
-        font-size: 2.5dvh;
-
-        transition: transform 0.3s ease-in-out;
-
-        &:hover {
-            transform: scale(1.02);
-        }
-    }
-
-    button {
-        background-color: ${variaveis.black1};
-        color: ${variaveis.branco2};
-        border: 2px solid ${variaveis.verde1};
-        box-shadow: 10px 10px 30px ${variaveis.verde1};
-        padding: 2dvh;
-        font-weight: bold;
-        width: fit-content;
-        margin: 0 auto;
-        font-size: 2.5dvh;
-        border-radius: 10px;
-        font-size: 2.5dvh;
-        transition: transform 0.3s ease-in-out;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
-
-    ::placeholder {
-        color: ${variaveis.branco2};
-        font-size: 2.5dvh;
-    }
-
-    @media (max-width: 768px) {
-        width: 90%;
-    }
-`;
-
-export const ContainerForm = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-
-    h3 {
-        font-size: 7dvh;
-
-        @media (max-width: 768px) {
-            font-size: 6dvh;
-            text-align: center;
-        }
-    }
-    p {
-        font-size: 4dvh;
-        margin-bottom: 3dvh;
-
-        @media (max-width: 768px) {
-            font-size: 3dvh;
-            text-align: center;
-        }
+        min-height: 9rem;
+        resize: vertical;
     }
 `;

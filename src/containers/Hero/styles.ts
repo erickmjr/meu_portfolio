@@ -1,147 +1,211 @@
-import styled from 'styled-components';
-import variaveis from '../../styles/variaveis';
-import backgroundImg from '../../images/backgrounds/hero.png';
+import styled, { keyframes } from 'styled-components';
+import variaveis, { telas } from '../../styles/variaveis';
+
+const subir = keyframes`
+    from {
+        transform: translateY(108%);
+    }
+`;
+
+const acomodar = keyframes`
+    from {
+        font-stretch: 78%;
+    }
+`;
+
+const aparecer = keyframes`
+    from {
+        opacity: 0;
+        transform: translateY(0.75rem);
+    }
+`;
+
+const descobrir = keyframes`
+    from {
+        clip-path: inset(100% 0 0 0);
+    }
+`;
+
+const aproximar = keyframes`
+    from {
+        transform: scale(1.14);
+    }
+`;
 
 export const HeroStyled = styled.section`
-    width: 100%;
-    height: 100dvh;
-    background-image: url(${backgroundImg});
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    @media (max-width: 768px) {
-        padding-top: 15dvh;
-        height: fit-content;
-        padding-bottom: 2dvh;
-    }
-`;
-
-export const CardContainer = styled.div`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
-`;
-
-export const ProfileCard = styled.div`
-    max-width: 50%;
+    min-height: 100svh;
     display: flex;
     align-items: center;
-    gap: 3dvh;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: calc(${variaveis.alturaTopo} + 2.5rem) 0 4rem;
 
-    img {
-        width: 50%;
-        border-radius: 340px;
+    .grade {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+        align-items: end;
+        gap: clamp(2rem, 6vw, 5.5rem);
     }
 
-    h1 {
-        font-size: 6dvh;
-        line-height: 1.2;
-        font-weight: 700;
-        color: ${variaveis.branco1};
-    }
+    @media (max-width: ${telas.tablet}) {
+        min-height: auto;
+        padding-top: calc(${variaveis.alturaTopo} + 1.5rem);
+        /* Espaço para o fluxo correr abaixo dos links. */
+        padding-bottom: 9rem;
 
-    p,
-    a {
-        font-size: 2.5dvh;
-        color: ${variaveis.branco1};
-        font-weight: 600;
-        margin-top: 0.5rem;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-
-        img {
-            margin-top: 0.75dvh;
-            max-width: 20%;
+        .grade {
+            grid-template-columns: 1fr;
+            gap: 2.25rem;
         }
     }
+`;
 
-    a {
-        margin-top: 0.5dvh;
-    }
+export const DicaFluxo = styled.div`
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.5rem;
+    z-index: 1;
+    pointer-events: none;
+    animation: ${aparecer} 0.9s ${variaveis.curva} 1.6s both;
 
-    @media (max-width: 768px) {
-        max-width: 100%;
-        flex-direction: column;
+    p {
+        display: inline-flex;
         align-items: center;
-        gap: 1dvh;
-        margin-bottom: 6dvh;
+        gap: 0.5rem;
+        font-size: 0.8125rem;
+        color: ${variaveis.tintaSuave};
+        transition: opacity 0.6s ease;
+    }
 
-        img {
-            width: 70%;
-        }
+    .ponto {
+        width: 0.4375rem;
+        height: 0.4375rem;
+        border-radius: 50%;
+        background-color: ${variaveis.sinal};
+    }
 
-        h1 {
-            font-size: 6dvh;
-            line-height: 1.2;
-            font-weight: 700;
-            color: ${variaveis.branco1};
-            padding-left: 3dvh;
-        }
+    &[data-oculta='true'] p {
+        opacity: 0;
+    }
+`;
 
-        p,
+export const TextoHero = styled.div`
+    h1 {
+        font-size: clamp(3rem, 7.6vw, 6.75rem);
+        font-stretch: 116%;
+        font-weight: 700;
+        line-height: 0.94;
+        letter-spacing: -0.04em;
+        animation: ${acomodar} 1.6s ${variaveis.curva} 0.1s both;
+    }
+
+    .linha {
+        display: block;
+        overflow: hidden;
+        padding-bottom: 0.06em;
+    }
+
+    .linha > span {
+        display: block;
+        animation: ${subir} 1s ${variaveis.curva} both;
+    }
+
+    .linha:nth-child(1) > span {
+        animation-delay: 0.1s;
+    }
+
+    .linha:nth-child(2) > span {
+        animation-delay: 0.2s;
+    }
+
+    .resumo {
+        margin-top: 2rem;
+        max-width: 31rem;
+        font-size: clamp(1.1875rem, 1.6vw, 1.375rem);
+        line-height: 1.5;
+        color: ${variaveis.tintaSuave};
+        animation: ${aparecer} 0.9s ${variaveis.curva} 0.55s both;
+    }
+
+    .acoes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 2.25rem;
+        animation: ${aparecer} 0.9s ${variaveis.curva} 0.68s both;
+    }
+
+    .redes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.75rem;
+        margin-top: 2.5rem;
+        animation: ${aparecer} 0.9s ${variaveis.curva} 0.8s both;
+
         a {
-            font-size: 2.5dvh;
-            color: ${variaveis.branco1};
-            font-weight: 600;
-            margin-top: 0.5rem;
-            margin-bottom: 0.75rem;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-            padding-left: 3dvh;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: ${variaveis.tintaSuave};
+            text-decoration: none;
+            transition: color 0.25s ease;
 
-            img {
-                max-width: 20%;
+            &:hover {
+                color: ${variaveis.sinalTexto};
             }
         }
+    }
 
-        a {
-            margin-top: 0.5dvh;
-        }
+    @media (max-width: ${telas.tablet}) {
+        order: 2;
     }
 `;
 
-export const TechsContainer = styled.aside`
-    background-color: ${variaveis.branco1};
-    border-radius: 20px;
-    padding: 2rem;
-    height: fit-content;
-    margin: 0 0 3dvh 5dvh;
-    text-align: left;
-
-    h2 {
-        color: ${variaveis.black1};
-        font-weight: 700;
-        text-shadow: 4px 4px 26px ${variaveis.black1};
-        font-size: 2rem;
-        text-align: center;
-    }
-    ul {
-        margin-top: 1rem;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 6vh;
-
-        @media (max-width: 768px) {
-            grid-gap: 4vh;
-        }
+export const Retrato = styled.figure`
+    .moldura {
+        overflow: hidden;
+        aspect-ratio: 4 / 5;
+        border-radius: 1.5rem;
+        background-color: ${variaveis.linha};
+        animation: ${descobrir} 1.2s ${variaveis.curva} 0.3s both;
     }
 
     img {
-        width: 54px;
-
-        @media (max-width: 768px) {
-            max-width: 4rem;
-        }
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 35%;
+        animation: ${aproximar} 1.6s ${variaveis.curva} 0.3s both;
     }
 
-    @media (max-width: 768px) {
-        width: 90%;
-        margin: 0;
+    figcaption {
+        margin-top: 0.875rem;
+        font-size: 0.875rem;
+        color: ${variaveis.tintaSuave};
+        animation: ${aparecer} 0.9s ${variaveis.curva} 0.9s both;
+    }
+
+    /* Quadrado no celular: mostra cabelo, rosto e queixo sem empurrar o nome
+       para fora da primeira tela. A largura máxima evita um quadrado enorme
+       em tablets. */
+    @media (max-width: ${telas.tablet}) {
+        order: 1;
+
+        .moldura {
+            aspect-ratio: 1;
+            width: min(100%, 24rem);
+            border-radius: 1.25rem;
+        }
+
+        img {
+            object-position: 50% 18%;
+        }
     }
 `;

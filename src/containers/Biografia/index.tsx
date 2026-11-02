@@ -1,37 +1,67 @@
-import { BiografiaStyled, ContainerImage, ContainerText } from './styles';
-import GithubStats from '../../components/GithubStats';
+import Revelar from '../../components/Revelar';
+import TituloSecao from '../../components/TituloSecao';
+import { formacao } from '../../dados/experiencias';
+import { gruposTecnologias } from '../../dados/tecnologias';
+import { Container, Secao } from '../../styles/layout';
+import { GradeSobre, Tecnologias } from './styles';
+
 const Biografia = () => {
     return (
-        <BiografiaStyled id="sobre">
-            <ContainerText>
-                <h2>Olá!</h2>
-                <h3>Eu sou Érick Mello, Desenvolvedor Front-End</h3>
-                <p>
-                    Sou estudante do quarto semestre de Sistemas de Informação
-                    no IFBA e atualmente estou focado em desenvolvimento{' '}
-                    <strong>Front-End</strong>. Tenho experiência com
-                    tecnologias como <strong>React</strong>,{' '}
-                    <strong>Redux</strong>, <strong>Styled-Components</strong>,{' '}
-                    <strong>TypeScript</strong>, <strong>Vitest</strong> e mais
-                    algumas...
-                </p>
-                <p>
-                    Apesar de estar atuando principalmente no Front-End,
-                    pretendo me aprofundar no desenvolvimento back-end com{' '}
-                    <strong>Java</strong>, com o objetivo de me tornar um
-                    desenvolvedor <strong>Full-Stack</strong>.
-                </p>
-                <p>
-                    Me interesso por interfaces bem construídas e funcionais, e
-                    aprendo melhor construindo projetos práticos. Busco minha
-                    primeira oportunidade como desenvolvedor front-end, onde eu
-                    possa unir técnica, criatividade e aprendizado contínuo.
-                </p>
-            </ContainerText>
-            <ContainerImage>
-                <GithubStats />
-            </ContainerImage>
-        </BiografiaStyled>
+        <Secao id="sobre">
+            <Container>
+                <TituloSecao>Sobre mim</TituloSecao>
+
+                <GradeSobre>
+                    <Revelar className="texto">
+                        <p>
+                            Estou no 6º semestre de Sistemas de Informação no
+                            IFBA e fiz a formação de Engenheiro Front-End na
+                            EBAC.
+                        </p>
+                        <p>
+                            Comecei pelo front-end, com React e TypeScript. Hoje
+                            atuo no back-end, no time de Integrações da BGC
+                            Brasil, construindo serviços serverless na AWS. Meu
+                            objetivo é crescer como desenvolvedor full-stack,
+                            juntando as duas experiências.
+                        </p>
+                    </Revelar>
+
+                    <Revelar atraso={120} className="formacao">
+                        <h3>Formação</h3>
+                        <ul>
+                            {formacao.map((item) => (
+                                <li key={item.curso}>
+                                    <strong>{item.curso}</strong>
+                                    <span>{item.instituicao}</span>
+                                    <span>{item.periodo}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </Revelar>
+                </GradeSobre>
+
+                <Tecnologias>
+                    <h3>Tecnologias</h3>
+                    <div className="grupos">
+                        {gruposTecnologias.map((grupo, indice) => (
+                            <Revelar
+                                key={grupo.titulo}
+                                atraso={(indice % 3) * 80}
+                                className="grupo"
+                            >
+                                <h4>{grupo.titulo}</h4>
+                                <ul>
+                                    {grupo.itens.map((item) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
+                            </Revelar>
+                        ))}
+                    </div>
+                </Tecnologias>
+            </Container>
+        </Secao>
     );
 };
 

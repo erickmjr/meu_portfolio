@@ -1,85 +1,70 @@
-import { useEffect, useCallback } from 'react';
-import { ProjetoStyled, TechsProjetoContainer } from './styles.ts';
-import useEmblaCarousel from 'embla-carousel-react';
-import { Embla, EmblaContainer, EmblaSlide } from './styles';
-import IconeTech from '../IconeTech/index.tsx';
-
-type ProjetoComponentProps = {
-    titulo: string;
-    imagens: string[];
-    descricao: string;
-    linkHospedagem: string;
-    linkRepo: string;
-};
-
-type TecnologiasProps = {
-    tecnologias: {
-        iconUrl: string;
-        iconAlt: string;
-        urlDocumentacao: string;
-    }[];
-};
-
-type ProjetoProps = TecnologiasProps & ProjetoComponentProps;
+import type { ProjetoFrontEnd } from '../../dados/projetos';
+import { ListaTecnologias } from '../../styles/layout';
+import { IconeSetaExterna } from '../Icones';
+import { ProjetoStyled } from './styles';
 
 const Projeto = ({
     titulo,
-    imagens,
+    data,
     descricao,
-    linkHospedagem,
-    linkRepo,
     tecnologias,
-}: ProjetoProps) => {
-    const [emblaRef, embla] = useEmblaCarousel({ loop: true });
-
-    const autoplay = useCallback(() => {
-        if (!embla) return;
-        const interval = setInterval(() => {
-            embla.scrollNext();
-        }, 3000);
-        return () => clearInterval(interval);
-    }, [embla]);
-
-    useEffect(() => {
-        const parar = autoplay();
-        return parar;
-    }, [autoplay]);
+    imagens,
+    linkSite,
+    linkRepo,
+}: ProjetoFrontEnd) => {
+    const [capa, detalhe] = imagens;
 
     return (
         <ProjetoStyled>
-            <h3>{titulo}</h3>
+            {/* A imagem repete o link "Ver site"; fica fora da ordem de tabulação. */}
+            <a
+                className="imagem"
+                href={linkSite}
+                target="_blank"
+                rel="noreferrer"
+                tabIndex={-1}
+                aria-hidden="true"
+            >
+                <img
+                    src={capa}
+                    alt=""
+                    width={1280}
+                    height={628}
+                    loading="lazy"
+                    decoding="async"
+                />
+                <img
+                    className="alternativa"
+                    src={detalhe}
+                    alt=""
+                    width={1280}
+                    height={628}
+                    loading="lazy"
+                    decoding="async"
+                />
+            </a>
 
-            <a href={linkHospedagem} target="_blank">
-                <Embla ref={emblaRef}>
-                    <EmblaContainer>
-                        {imagens.map((imgUrl, index) => (
-                            <EmblaSlide key={index}>
-                                <img
-                                    src={imgUrl}
-                                    alt={`Imagem do projeto ${titulo} - ${index + 1}`}
-                                />
-                            </EmblaSlide>
-                        ))}
-                    </EmblaContainer>
-                </Embla>
-            </a>
+            <div className="cabecalho">
+                <h4>{titulo}</h4>
+                <span>{data}</span>
+            </div>
             <p>{descricao}</p>
-            <TechsProjetoContainer>
-                <h4>Tecnologias utilizadas</h4>
-                <div className="containerIcons">
-                    {tecnologias.map((tech) => (
-                        <IconeTech
-                            key={tech.iconUrl}
-                            iconUrl={tech.iconUrl}
-                            iconAlt={tech.iconAlt}
-                            urlDocumentacao={tech.urlDocumentacao}
-                        />
-                    ))}
-                </div>
-            </TechsProjetoContainer>
-            <a href={linkRepo} target="_blank">
-                Acesse o repositório
-            </a>
+            <ListaTecnologias aria-label="Tecnologias usadas">
+                {tecnologias.map((tecnologia) => (
+                    <li key={tecnologia}>{tecnologia}</li>
+                ))}
+            </ListaTecnologias>
+
+            <div className="links">
+                <a href={linkSite} target="_blank" rel="noreferrer">
+                    Ver site
+                    <IconeSetaExterna />
+                </a>
+                <a href={linkRepo} target="_blank" rel="noreferrer">
+                    Código
+                    <IconeSetaExterna />
+                </a>
+            </div>
         </ProjetoStyled>
     );
 };

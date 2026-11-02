@@ -2,36 +2,27 @@ import styled from 'styled-components';
 import variaveis from '../../styles/variaveis';
 
 export const FooterStyled = styled.footer`
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 3dvh;
-    background-color: ${variaveis.branco1};
-    display: flex;
-    gap: 4dvh;
-    justify-content: center;
-    align-items: center;
+    border-top: 1px solid ${variaveis.linha};
+    font-size: 0.9375rem;
+    color: ${variaveis.tintaSuave};
+
+    .conteudo {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 
     a {
-        color: ${variaveis.black1};
-        display: flex;
-        align-items: center;
-        font-weight: bold;
+        font-weight: 500;
         text-decoration: none;
-    }
+        transition: color 0.25s ease;
 
-    img {
-        width: 2rem;
-        margin-left: 1dvh;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 2dvh;
-
-        img {
-            width: 1.25rem;
-            margin-left: 0.5dvh;
+        &:hover {
+            color: ${variaveis.sinalTexto};
         }
     }
 `;

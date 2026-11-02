@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "three-js": {
+      "source": "mindrally/skills",
+      "sourceType": "github",
+      "skillPath": "three-js/SKILL.md",
+      "computedHash": "e86efb7c9a8aec689bc5fdfc5663b93596d8309b5d0237751570d8c6a34e73fd"
+    }
+  }
+}
